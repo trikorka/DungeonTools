@@ -1,0 +1,21 @@
+.manrope-uniquifier {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-image: url("assets/images/background-image.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.dt-border {
+  border: 1px solid #293B56;
+}
+
+.dt-bg-color {
+  background: #293B56;
+}/*# sourceMappingURL=style.css.map */

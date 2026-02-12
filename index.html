@@ -1,86 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dungeon Tools</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
-    <style type="text/tailwindcss">
-      @theme {
-        --color-darkgrey: #293B56;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Tools</title>
+  <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bs-primary-rgb: 29, 53, 87;
+    }
 
-      .border-primary {
-        @apply border-1 border-darkgrey rounded-2xl;
-      }
-    </style>
+    .accordion-button:not(.collapsed) {
+      box-shadow: none;
+    }
+  </style>
 </head>
-<body class="mx-10 lg:mx-60 bg-[url(assets/images/background-image.png)] bg-cover bg-center text-white">
-  <header class="mb-20 border-b-1 border-r-1 border-l-1 border-darkgrey rounded-b-2xl py-6 font-light text-lg">
-    <nav class="flex justify-center gap-5">
-      <a class="hover:font-bold" href="">Главная</a>
-      <a class="hover:font-bold" href="">Наши проекты</a>
-      <a class="hover:font-bold" href="">О нас</a>
-      <a class="hover:font-bold" href="">Контакты</a>
+<body class="text-light manrope-uniquifier">
+  <header class="container-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark dt-border rounded-bottom dt-bg-color">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav d-flex justify-content-center w-100 gap-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Наши инструменты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <section class="relative mb-30 py-30 border-primary">
-    <div class="flex items-center justify-center">
-      <img class="w-20" src="assets/images/logo.svg" alt="logo">
-      <h1 class="text-6xl font-bold">Dungeon<span class="text-blue-500">Table</span></h1>
+  <section class="container-lg">
+    <div class="container-fluid py-5 my-5 text-center dt-border rounded">
+      <img class="d-block mx-auto mb-4" src="assets/images/logo.svg" alt="Dungeon Tools Logo" width="128" height="128">
+      <h1 class="display-5 fw-bold">Dungeon Tools</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Набор интерактивных инструментов для мастеров подземелий</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Войти</button>
+          <button type="button" class="btn btn-outline-primary btn-lg px-4">Зарегистрироваться</button>
+        </div>
+      </div>
     </div>
-    <h2 class="text-center text-2xl mt-6">Набор интерактивных инструментов для мастеров подземелий</h2>
-    <button class="absolute bg-[#121C2F] hover:bg-darkgrey bottom-[-30px] left-[calc(50%-73px)] button py-4 px-10 border-primary text-lg font-medium">Войти</button>
   </section>
-
-  <section class="mb-20 py-20 border-primary flex gap-16 items-center justify-center">
-    <a href="#"><img src="assets/images/dungeonanddrugons-logo.png" alt="Dungeon & Dragons Logo"></a>
-    <a href="#"><img src="assets/images/callofcthulhu-logo.png" alt="Call of Cthulhu logo"></a>
-    <a href="#"><img src="assets/images/daggerheart-logo.png" alt="Daggerheart logo"></a>
-  </section>
-
-  <section class="mb-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 text-center text-lg font-medium">
-    <div class="border-primary w-full py-20">
-      <h3>Лист персонажа</h3>
-    </div>
-
-    <div class="border-primary w-full py-20">
-      <h3>Трекер инициативы</h3>
-    </div>
-
-    <div class="border-primary w-full py-20">
-      <h3>Цифровые кубы</h3>
-    </div>
-
-    <div class="border-primary w-full py-20">
-      <h3>Токенатор</h3>
-    </div>
-
-    <div class="border-primary w-full py-20">
-      <h3>Виртуальный стол</h3>
-    </div>
-
-    <div class="border-primary w-full py-20 text-darkgrey">
-      <h3>В разработке</h3>
+  
+  <section class="container-lg mb-5">
+    <div class="d-flex justify-content-center py-4 dt-border rounded">
+      <div class="col rounded d-flex justify-content-center align-items-center">
+        <a href="#" target="_blank"><img src="assets/images/dungeonanddrugons-logo.png" class="img-fluid" alt="Партнер 1"></a>
+      </div>
+      <div class="col rounded d-flex justify-content-center align-items-center">
+        <a href="#" target="_blank"><img src="assets/images/callofcthulhu-logo.png" class="img-fluid" alt="Партнер 2"></a>
+      </div>
+      <div class="col rounded d-flex justify-content-center align-items-center">
+        <a href="#" target="_blank"><img src="assets/images/daggerheart-logo.png" class="img-fluid" alt="Партнер 3"></a>
+      </div>
     </div>
   </section>
 
-  <section class="mb-20">
-    <div class="border-primary">
-      <h2 class="py-6 text-3xl text-center font-medium">Преимущества</h2>
+  <section class="container-lg mb-5">
+    <h2 class="text-center mb-4">Наши инструменты</h2>
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold">Токенатор</h5>
+            <p class="card-text">Инструмент для создания и управления токенами в подземельях</p>
+            <a href="#" class="btn btn-primary">Перейти к Токенатору</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold">Лист персонажа</h5>
+            <p class="card-text">Создавайте и редактируйте листы персонажей для своих приключений</p>
+            <a href="#" class="btn btn-primary">Перейти к Листу персонажа</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold">Цифровые кубы</h5>
+            <p class="card-text">Используйте виртуальные кубы для генерации случайных результатов в ваших играх</p>
+            <a href="#" class="btn btn-primary">Перейти к Цифровым кубам</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold">Трекер инициативы</h5>
+            <p class="card-text">Отслеживайте и управляйте инициативой в ваших сессиях. Ускорьте процесс боя и забудьте о ручной записи инициативы!</p>
+            <a href="#" class="btn btn-primary">Перейти к Трекеру инициативы</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold">Виртуальный стол</h5>
+            <p class="card-text">Инструмент для совместной работы над подземельями и персонажами в реальном времени</p>
+            <a href="#" class="btn btn-primary">Перейти к Виртуальному столу</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-secondary border-primary">
+          <div class="card-body d-flex flex-column justify-content-space-between">
+            <h5 class="card-title fw-bold text-primary">В разработке</h5>
+            <p class="card-text text-primary">Ждите новых функций и инструментов в ближайшее время!</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="mb-20">
-    <div class="border-primary">
-      <h2 class="py-6 text-3xl text-center font-medium">FAQ</h2>
+  <section class="container-lg mb-5">
+    <h2 class="text-center mb-4">Преимущества Dungeon Tools</h2>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Удобство использования</h5>
+            <p class="card-text">Интуитивно понятный интерфейс, который позволяет легко создавать и управлять вашими подземельями и персонажами.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Многофункциональность</h5>
+            <p class="card-text">Набор инструментов, который охватывает все аспекты управления подземельями, от создания карт до управления персонажами и генерации случайных событий.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Совместимость</h5>
+            <p class="card-text">Поддержка различных систем ролевых игр, что позволяет использовать Dungeon Tools для широкого спектра приключений и кампаний.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 bg-transparent text-light border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Поддержка сообщества</h5>
+            <p class="card-text">Активное сообщество пользователей и регулярные обновления, которые делают Dungeon Tools все лучше.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="py-6 bg-darkgrey rounded-t-2xl text-center">
-    Copyright 2026
+  <section class="container-lg mb-5">
+    <h2 class="text-center mb-4">Часто задаваемые вопросы</h2>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item bg-transparent text-light border-primary">
+        <h2 class="accordion-header">
+          <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Как начать использовать Dungeon Tools?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-transparent text-light">
+            <strong>Начните с простых шагов:</strong> Зарегистрируйтесь на платформе, выберите нужный инструмент и начните создавать. Каждый инструмент имеет интуитивный интерфейс и подробные подсказки для новичков.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item bg-transparent text-light border-primary">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Какие системы ролевых игр поддерживаются?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-transparent text-light">
+            <strong>Dungeon Tools совместима со множеством систем:</strong> Dungeons & Dragons, Call of Cthulhu, Daggerheart и другими популярными системами. Наши инструменты адаптируются под правила каждой системы.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item bg-transparent text-light border-primary">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Сколько стоит использование Dungeon Tools?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-transparent text-light">
+            <strong>Dungeon Tools предлагает гибкие варианты:</strong> базовый пакет бесплатно может использовать каждый, а для расширенных функций доступны платные подписки с различными уровнями доступа.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container-lg">
+    <div class="dt-bg-color text-light text-center py-4 rounded-top">
+      <p class="mb-0">&copy; 2026 Dungeon Tools. Все права защищены.</p>
+      <p class="mb-0">Контакты: <a href="mailto:example" class="text-light">contact@dungeon-tools.ru</a></p>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
