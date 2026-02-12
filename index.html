@@ -2,10 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Tools</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+    <style type="text/tailwindcss">
+      @theme {
+        --color-darkgrey: #293B56;
+      }
+
+      .border-primary {
+        @apply border-1 border-darkgrey rounded-2xl;
+      }
+    </style>
 </head>
-<body>
-    <h1>Hello world</h1>
+<body class="mx-10 lg:mx-60 bg-[url(assets/images/background-image.png)] bg-cover bg-center text-white">
+  <header class="mb-20 border-b-1 border-r-1 border-l-1 border-darkgrey rounded-b-2xl py-6 font-light text-lg">
+    <nav class="flex justify-center gap-5">
+      <a class="hover:font-bold" href="">Главная</a>
+      <a class="hover:font-bold" href="">Наши проекты</a>
+      <a class="hover:font-bold" href="">О нас</a>
+      <a class="hover:font-bold" href="">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="relative mb-30 py-30 border-primary">
+    <div class="flex items-center justify-center">
+      <img class="w-20" src="assets/images/logo.svg" alt="logo">
+      <h1 class="text-6xl font-bold">Dungeon<span class="text-blue-500">Table</span></h1>
+    </div>
+    <h2 class="text-center text-2xl mt-6">Набор интерактивных инструментов для мастеров подземелий</h2>
+    <button class="absolute bg-[#121C2F] hover:bg-darkgrey bottom-[-30px] left-[calc(50%-73px)] button py-4 px-10 border-primary text-lg font-medium">Войти</button>
+  </section>
+
+  <section class="mb-20 py-20 border-primary flex gap-16 items-center justify-center">
+    <a href="#"><img src="assets/images/dungeonanddrugons-logo.png" alt="Dungeon & Dragons Logo"></a>
+    <a href="#"><img src="assets/images/callofcthulhu-logo.png" alt="Call of Cthulhu logo"></a>
+    <a href="#"><img src="assets/images/daggerheart-logo.png" alt="Daggerheart logo"></a>
+  </section>
+
+  <section class="mb-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 text-center text-lg font-medium">
+    <div class="border-primary w-full py-20">
+      <h3>Лист персонажа</h3>
+    </div>
+
+    <div class="border-primary w-full py-20">
+      <h3>Трекер инициативы</h3>
+    </div>
+
+    <div class="border-primary w-full py-20">
+      <h3>Цифровые кубы</h3>
+    </div>
+
+    <div class="border-primary w-full py-20">
+      <h3>Токенатор</h3>
+    </div>
+
+    <div class="border-primary w-full py-20">
+      <h3>Виртуальный стол</h3>
+    </div>
+
+    <div class="border-primary w-full py-20 text-darkgrey">
+      <h3>В разработке</h3>
+    </div>
+  </section>
+
+  <section class="mb-20">
+    <div class="border-primary">
+      <h2 class="py-6 text-3xl text-center font-medium">Преимущества</h2>
+    </div>
+  </section>
+
+  <section class="mb-20">
+    <div class="border-primary">
+      <h2 class="py-6 text-3xl text-center font-medium">FAQ</h2>
+    </div>
+  </section>
+
+  <footer class="py-6 bg-darkgrey rounded-t-2xl text-center">
+    Copyright 2026
+  </footer>
 </body>
 </html>
