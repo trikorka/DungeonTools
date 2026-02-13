@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Dungeon Tools</title>
+    <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+        --bs-primary-rgb: 29, 53, 87;
+        }
+
+        .accordion-button:not(.collapsed) {
+        box-shadow: none;
+        }
+    </style>
+</head>
+<body class="text-light manrope-uniquifier">
+  <header class="container-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark dt-border rounded-bottom dt-bg-color">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav d-flex justify-content-center w-100 gap-4">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ourtools.html">Наши инструменты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container-lg py-5">
+    <div class="container-fluid text-center dt-border rounded py-5 my-5">
+      <img class="d-block mx-auto mb-4" src="../assets/images/logo.svg" alt="Dungeon Tools Logo" width="128" height="128">
+      <h1 class="display-5 fw-bold">Контакты</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Свяжитесь с нами для вопросов, предложений или поддержки</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-lg mb-5">
+    <h2 class="text-center mb-4">Наши контакты</h2>
+    <div class="row gy-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary text-center">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">Телефон</h3>
+            <p class="card-text">+7 (123) 456-78-90</p>
+            <a href="tel:+71234567890" class="btn btn-primary">Позвонить</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary text-center">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">Email</h3>
+            <p class="card-text">contact@dungeon-tools.ru</p>
+            <a href="mailto:contact@dungeon-tools.ru" class="btn btn-primary">Написать</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 bg-transparent text-light border-primary text-center">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">Социальные сети</h3>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="https://vk.com/dungeontools" target="_blank" class="text-light"><i class="fab fa-vk"></i> VK</a>
+              <a href="https://t.me/dungeontools" target="_blank" class="text-light"><i class="fab fa-telegram"></i> Telegram</a>
+              <a href="https://discord.gg/dungeontools" target="_blank" class="text-light"><i class="fab fa-discord"></i> Discord</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-lg mb-5">
+    <h2 class="text-center mb-4">Связаться с нами</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card bg-transparent text-light border-primary">
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Ваше имя</label>
+                <input type="text" class="form-control bg-transparent text-light border-primary" id="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control bg-transparent text-light border-primary" id="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea class="form-control bg-transparent text-light border-primary" id="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container-lg">
+    <div class="dt-bg-color text-light text-center py-4 rounded-top">
+      <p class="mb-0">&copy; 2026 Dungeon Tools. Все права защищены.</p>
+      <p class="mb-0">Контакты: <a href="mailto:contact@dungeon-tools.ru" class="text-light">contact@dungeon-tools.ru</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
