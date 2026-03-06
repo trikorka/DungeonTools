@@ -102,15 +102,17 @@
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label">Ваше имя</label>
+                <label for="name" class="form-label">Ваше имя <span class="text-danger">*</span></label>
                 <input type="text" class="form-control bg-transparent text-light border-primary" id="name" required>
+                <div class="invalid-feedback">Введите имя и фамилию (минимум 2 слова).</div>
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                 <input type="email" class="form-control bg-transparent text-light border-primary" id="email" required>
+                <div class="invalid-feedback">Введите корректный email адрес.</div>
               </div>
               <div class="mb-3">
-                <label for="subject" class="form-label">Тема</label>
+                <label for="subject" class="form-label">Тема <span class="text-danger">*</span></label>
                 <select class="form-select bg-transparent text-light border-primary" id="subject" required>
                   <option class="text-dark" value="">Выберите тему</option>
                   <option class="text-dark" value="support">Поддержка</option>
@@ -118,14 +120,17 @@
                   <option class="text-dark" value="partnership">Партнерство</option>
                   <option class="text-dark" value="other">Другое</option>
                 </select>
+                <div class="invalid-feedback">Пожалуйста, выберите тему.</div>
               </div>
               <div class="mb-3">
-                <label for="message" class="form-label">Сообщение</label>
+                <label for="message" class="form-label">Сообщение <span class="text-danger">*</span></label>
                 <textarea class="form-control bg-transparent text-light border-primary" id="message" rows="4" required></textarea>
+                <div class="invalid-feedback">Пожалуйста, введите сообщение.</div>
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input border-primary" id="consent" required>
-                <label class="form-check-label" for="consent">Я согласен на обработку персональных данных</label>
+                <label class="form-check-label" for="consent">Я согласен на обработку персональных данных <span class="text-danger">*</span></label>
+                <div class="invalid-feedback">Необходимо согласие на обработку данных.</div>
               </div>
               <button type="submit" class="btn btn-primary w-100">Отправить</button>
             </form>
@@ -148,5 +153,104 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      if (!form) return;
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Отмена перезагрузки
+
+        // Сброс ошибок
+        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+        form.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
+
+        let isValid = true;
+
+        // 1. Валидация ФИО
+        const name = document.getElementById('name');
+        const nameValue = name.value.trim();
+        if (nameValue === '' || nameValue.split(' ').filter(w => w.length > 0).length < 2) {
+          showError(name);
+          isValid = false;
+        }
+
+        // Валидация email
+        const email = document.getElementById('email');
+        const emailValue = email.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailValue)) {
+          showError(email);
+          isValid = false;
+        }
+
+        // Валидация темы
+        const subject = document.getElementById('subject');
+        if (subject.value === '') {
+          showError(subject);
+          isValid = false;
+        }
+
+        // Валидация сообщения
+        const message = document.getElementById('message');
+        if (message.value.trim() === '') {
+          showError(message);
+          isValid = false;
+        }
+
+        // Проверка согласия
+        const consent = document.getElementById('consent');
+        if (!consent.checked) {
+          showError(consent);
+          isValid = false;
+        }
+
+        if (isValid) {
+          const formData = {
+            name: nameValue,
+            email: emailValue,
+            subject: subject.value,
+            message: message.value.trim(),
+            consent: consent.checked
+          };
+
+          const customEvent = new CustomEvent('formValid', { detail: formData });
+          document.dispatchEvent(customEvent);
+
+          alert('Форма успешно валидирована! Проверьте консоль (F12).');
+        }
+      });
+
+      function showError(input) {
+        input.classList.add('is-invalid');
+        const feedback = input.parentNode.querySelector('.invalid-feedback');
+        if (feedback) {
+          feedback.style.display = 'block';
+        }
+      }
+
+      form.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('input', function() {
+          this.classList.remove('is-invalid');
+          const feedback = this.parentNode.querySelector('.invalid-feedback');
+          if (feedback) {
+            feedback.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    document.addEventListener('formValid', function(event) {
+      const formData = event.detail;
+      console.clear();
+      console.log('%c--- Данные формы ---', 'color: #007bff; font-weight: bold;');
+      console.log('Имя:', formData.name);
+      console.log('Email:', formData.email);
+      console.log('Тема:', formData.subject);
+      console.log('Сообщение:', formData.message);
+      console.log('Согласие:', formData.consent);
+      console.log('Время отправки:', new Date().toLocaleString());
+    });
+  </script>
 </body>
 </html>
