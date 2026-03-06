@@ -102,7 +102,7 @@
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label">Ваше имя <span class="text-danger">*</span></label>
+                <label for="name" class="form-label">Ваше имя и фамилия <span class="text-danger">*</span></label>
                 <input type="text" class="form-control bg-transparent text-light border-primary" id="name" required>
                 <div class="invalid-feedback">Введите имя и фамилию (минимум 2 слова).</div>
               </div>
@@ -159,7 +159,7 @@
       if (!form) return;
 
       form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Отмена перезагрузки
+        event.preventDefault();
 
         // Сброс ошибок
         form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
@@ -167,7 +167,7 @@
 
         let isValid = true;
 
-        // 1. Валидация ФИО
+        // Валидация ФИО
         const name = document.getElementById('name');
         const nameValue = name.value.trim();
         if (nameValue === '' || nameValue.split(' ').filter(w => w.length > 0).length < 2) {
@@ -217,7 +217,7 @@
           const customEvent = new CustomEvent('formValid', { detail: formData });
           document.dispatchEvent(customEvent);
 
-          alert('Форма успешно валидирована! Проверьте консоль (F12).');
+          alert('Форма успешно отправлена!');
         }
       });
 
